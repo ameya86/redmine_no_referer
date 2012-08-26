@@ -1,0 +1,23 @@
+<% javascript_tag do %>
+<%# JavascriptでURLを置き換える %>
+function replace_url_for_no_referer() {
+  <%# Redmine内のURLと識別するための正規表現 %>
+  var in_regex = new RegExp('<%= Setting.plugin_redmine_no_referer['check_regex'] %>')
+  <%# ページ内すべてのaタグを取得 %>
+  var links = document.getElementsByTagName('a');
+  <%# 自動遷移ページのURL %>
+  var redirect_url = '<%= escape_javascript(url_for({:controller => 'no_referer', :action => 'no_referer'})) %>?url=';
+
+  for (index = 0; links.length > index; index++) {
+    var link = links[index];
+    var href = link.getAttribute('href');
+    var elm_class = link.getAttribute('class');
+    <%# hrefが有効で、classがno_refererでなく、正規表現にマッチしない場合は置き換える %>
+    if (href != null && !(href === void(0)) && 'no_referer' != elm_class && !href.match(in_regex)) {
+      link.setAttribute('href', redirect_url + encodeURIComponent(href));
+    }
+  }
+}
+
+replace_url_for_no_referer();
+<% end %>

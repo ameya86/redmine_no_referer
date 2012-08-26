@@ -1,0 +1,13 @@
+<p>
+  <label><%= l(:field_no_referer_check_regex) %></label>
+  <%= text_field_tag('settings[check_regex]', @settings['check_regex'], :size => 40) %>
+  <br />
+  <small><%= l(:notice_no_referer_check_regex) %></small>
+</p>
+
+<p>
+  <label><%= l(:field_no_referer_refresh_second) %></label>
+  <%= text_field_tag('settings[refresh_second]', @settings['refresh_second'], :size => 5) %>
+  <br />
+  <small><%= l(:notice_no_referer_refresh_second) %></small>
+</p>

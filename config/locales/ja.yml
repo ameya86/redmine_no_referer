@@ -1,0 +1,11 @@
+ja:
+  field_no_referer_check_regex: このRedmine内のURLと判定するための正規表現
+  field_no_referer_refresh_second: ページ移動までの秒数
+
+  text_no_referer_goto_out: 外部のサイトへ移動しようとしています。
+  text_no_referer_self_to: 自動的に移動しない場合は、上のURLをクリックしてください。
+  text_no_referer_no_auto: 自動的に移動しないので、上のURLをクリックしてください。
+
+  notice_no_referer_check_regex: "Redmine内のURLは基本的に/（スラッシュ）始まりです。<br />外部サイトへのリンクはhttp://などのプロトコル始まりになるようです。"
+  notice_no_referer_refresh_second: "空欄にした場合は、自動遷移しません。<br />数値以外を入れた場合は0扱いになります。"
+

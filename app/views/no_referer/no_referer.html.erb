@@ -1,0 +1,17 @@
+<%# METAタグにRefreshを追加する。 %>
+<% content_for :header_tags do %>
+<meta http-equiv="refresh" content="<%= @refresh_second %>;URL=<%= h(@no_referer_url) %>">
+<% end if @refresh_second >= 0 %>
+
+<p>
+  <%= l(:text_no_referer_goto_out) %>
+</p>
+
+<p>
+  <%= link_to(@no_referer_url, @no_referer_url, :class => 'no_referer') %>
+</p>
+<p>
+  <%= l((@refresh_second >= 0)? :text_no_referer_self_to : :text_no_referer_no_auto) %>
+</p>
+
+<% html_title(l(:text_no_referer_goto_out)) %>
